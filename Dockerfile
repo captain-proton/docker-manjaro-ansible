@@ -4,14 +4,10 @@ LABEL maintainer="captain-proton"
 ENV container="docker"
 
 RUN pacman -Syu --noconfirm && \
-    pacman -S python \
-              python-pip \
+    pacman -S python-pip \
               python-wheel \
               python-setuptools \
-              systemd \
-              sudo \
               git \
-              base \
               base-devel \
               ansible-core \
               --noconfirm && \

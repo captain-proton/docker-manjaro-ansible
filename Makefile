@@ -20,12 +20,12 @@ size: build
 
 .PHONY: test
 test: build
-	dgoss run -it --rm --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro captain-proton/docker-manjaro-ansible:$${TAG:-test}
+	dgoss run -it --rm --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:rw --cgroupns=host captain-proton/docker-manjaro-ansible:$${TAG:-test}
 	# CI=true make size
 
 .PHONY: test-edit
 test-edit: build
-	dgoss edit -it --rm --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro captain-proton/docker-manjaro-ansible:$${TAG:-test}
+	dgoss edit -it --rm --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:rw --cgroupns=host captain-proton/docker-manjaro-ansible:$${TAG:-test}
 
 .PHONY: build
 build:
@@ -33,7 +33,7 @@ build:
 
 .PHONY: run
 run: build
-	docker run -id --rm --name runner --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro captain-proton/docker-manjaro-ansible:$${TAG:-test}
+	docker run -id --rm --name runner --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:rw --cgroupns=host captain-proton/docker-manjaro-ansible:$${TAG:-test}
 	-docker exec -it runner /bin/sh
 	docker stop runner
 # end
