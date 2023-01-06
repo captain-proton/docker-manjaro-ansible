@@ -1,3 +1,4 @@
+---
 name: Docker Image CI
 
 on: 
@@ -6,7 +7,7 @@ on:
       - main
 
 env:
-  IMAGE_NAME: artis3n/docker-ubuntu2104-ansible
+  IMAGE_NAME: captain-proton/docker-manjaro-ansible
 
 jobs:
   lint:
@@ -44,4 +45,4 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Test the Docker image
-        run: dgoss run -it --rm --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro ${{ env.IMAGE_NAME }}:test
+        run: dgoss run -it --rm --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:rw --cgroupns=host ${{ env.IMAGE_NAME }}:test
