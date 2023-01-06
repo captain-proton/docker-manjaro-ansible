@@ -1,7 +1,9 @@
 # docker-manjaro-ansible
 
+[![CI](https://github.com/captain-proton/docker-manjaro-ansible/workflows/ci.yml/badge.svg)](https://github.com/captain-proton/docker-manjaro-ansible/actions?query=workflow%3Aci)
+
 Manjaro Linux Docker container for Ansible playbook and role testing.
-Inspired by <https://github.com/artis3n/docker-arch-ansible> and <https://github.com/geerlingguy/docker-ubuntu2004-ansible>.
+Inspired by [artis3n/docker-arch-ansible](https://github.com/artis3n/docker-arch-ansible) and [geerlingguy/docker-ubuntu2004-ansible](https://github.com/geerlingguy/docker-ubuntu2004-ansible).
 
 ## Tags
 
